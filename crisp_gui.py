@@ -20,10 +20,6 @@ class Ui_MainWindow(object):
         self.idLbl = QtWidgets.QLabel(self.centralwidget)
         self.idLbl.setGeometry(QtCore.QRect(70, 80, 81, 16))
         self.idLbl.setObjectName("idLbl")
-        self.TestSeqBtnBx = QtWidgets.QDialogButtonBox(self.centralwidget)
-        self.TestSeqBtnBx.setGeometry(QtCore.QRect(380, 110, 91, 31))
-        self.TestSeqBtnBx.setStandardButtons(QtWidgets.QDialogButtonBox.Open)
-        self.TestSeqBtnBx.setObjectName("TestSeqBtnBx")
         self.sampIDBx = QtWidgets.QLineEdit(self.centralwidget)
         self.sampIDBx.setGeometry(QtCore.QRect(160, 80, 113, 20))
         self.sampIDBx.setObjectName("sampIDBx")
@@ -39,6 +35,9 @@ class Ui_MainWindow(object):
         self.seqEndLbl = QtWidgets.QLabel(self.centralwidget)
         self.seqEndLbl.setGeometry(QtCore.QRect(70, 150, 81, 16))
         self.seqEndLbl.setObjectName("seqEndLbl")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(350, 250, 75, 23))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 810, 21))
@@ -51,6 +50,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.menubar.addAction(self.menuSJ_CAGE_Cris_py.menuAction())
 
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -60,8 +60,15 @@ class Ui_MainWindow(object):
         self.idLbl.setText(_translate("MainWindow", "Sample ID:"))
         self.seqSrtLbl.setText(_translate("MainWindow", "Sequence Start"))
         self.seqEndLbl.setText(_translate("MainWindow", "Sequence End"))
+        self.pushButton.setText(_translate("MainWindow", "Run Test"))
         self.menuSJ_CAGE_Cris_py.setTitle(_translate("MainWindow", "SJ-CAGE Cris.py"))
 
+
+    def runTest(self):
+        print("Sample ID: "+self.sampIDBx.text +"/n"
+        "Seq Start: "+self.seqSrtBx.text +"/n"
+        "Seq End: "+self.seqEndBx.text +"/n"
+        )
 
 if __name__ == "__main__":
     import sys
