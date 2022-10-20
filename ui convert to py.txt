@@ -1,0 +1,1 @@
+pyuic5 -x crisp_gui.ui -o crisp_gui.py

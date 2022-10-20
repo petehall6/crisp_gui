@@ -17,26 +17,39 @@ class Ui_MainWindow(object):
         MainWindow.resize(810, 498)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(70, 80, 81, 16))
-        self.label.setObjectName("label")
+        self.idLbl = QtWidgets.QLabel(self.centralwidget)
+        self.idLbl.setGeometry(QtCore.QRect(70, 80, 81, 16))
+        self.idLbl.setObjectName("idLbl")
         self.TestSeqBtnBx = QtWidgets.QDialogButtonBox(self.centralwidget)
-        self.TestSeqBtnBx.setGeometry(QtCore.QRect(150, 70, 91, 31))
+        self.TestSeqBtnBx.setGeometry(QtCore.QRect(380, 110, 91, 31))
         self.TestSeqBtnBx.setStandardButtons(QtWidgets.QDialogButtonBox.Open)
         self.TestSeqBtnBx.setObjectName("TestSeqBtnBx")
+        self.sampIDBx = QtWidgets.QLineEdit(self.centralwidget)
+        self.sampIDBx.setGeometry(QtCore.QRect(160, 80, 113, 20))
+        self.sampIDBx.setObjectName("sampIDBx")
+        self.seqSrtBx = QtWidgets.QLineEdit(self.centralwidget)
+        self.seqSrtBx.setGeometry(QtCore.QRect(160, 110, 113, 20))
+        self.seqSrtBx.setObjectName("seqSrtBx")
+        self.seqSrtLbl = QtWidgets.QLabel(self.centralwidget)
+        self.seqSrtLbl.setGeometry(QtCore.QRect(70, 110, 81, 16))
+        self.seqSrtLbl.setObjectName("seqSrtLbl")
+        self.seqEndBx = QtWidgets.QLineEdit(self.centralwidget)
+        self.seqEndBx.setGeometry(QtCore.QRect(160, 150, 113, 20))
+        self.seqEndBx.setObjectName("seqEndBx")
+        self.seqEndLbl = QtWidgets.QLabel(self.centralwidget)
+        self.seqEndLbl.setGeometry(QtCore.QRect(70, 150, 81, 16))
+        self.seqEndLbl.setObjectName("seqEndLbl")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 810, 21))
         self.menubar.setObjectName("menubar")
+        self.menuSJ_CAGE_Cris_py = QtWidgets.QMenu(self.menubar)
+        self.menuSJ_CAGE_Cris_py.setObjectName("menuSJ_CAGE_Cris_py")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
-        #Button setup
-        self.TestSeqBtnBx.clicked.connect(self.showClicked)
-
-
+        self.menubar.addAction(self.menuSJ_CAGE_Cris_py.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -44,10 +57,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Test Sequence:"))
+        self.idLbl.setText(_translate("MainWindow", "Sample ID:"))
+        self.seqSrtLbl.setText(_translate("MainWindow", "Sequence Start"))
+        self.seqEndLbl.setText(_translate("MainWindow", "Sequence End"))
+        self.menuSJ_CAGE_Cris_py.setTitle(_translate("MainWindow", "SJ-CAGE Cris.py"))
 
-    def showClicked(self):
-        print("Button Clicked")
 
 if __name__ == "__main__":
     import sys
